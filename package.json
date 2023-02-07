@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://zacksnyder129.github.io/CollegeParkho.github.io/",
   "dependencies": {
     "gh-pages": "^5.0.0",
     "react": "^16.11.0",
@@ -12,6 +13,8 @@
     "react-transition-group": "^4.3.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
