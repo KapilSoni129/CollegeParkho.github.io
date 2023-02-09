@@ -10,6 +10,7 @@ import Users from './user/pages/Users';
 import NewReview from './college/pages/NewReview';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import UserReview from './college/pages/UserReview';
+import UpdateReview from './college/pages/UpdateReview';
 
 const App = () => {
   return (
@@ -25,6 +26,9 @@ const App = () => {
           </Route>
           <Route path="/college/new" exact>
             <NewReview />
+          </Route>
+          <Route path="college/:collegeId">
+            <UpdateReview/>
           </Route>
           <Redirect to="/" />
         </Switch>
