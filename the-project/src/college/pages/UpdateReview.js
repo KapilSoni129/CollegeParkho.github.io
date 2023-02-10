@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../../shared/util/validators"; 
+import UserItem from "../../user/components/UserItem";
 
 const Dummy_reviews= [
     {
@@ -34,14 +35,15 @@ const Dummy_reviews= [
 ]
 
 const UpdateReview = () => {
-    const collegeId = useParams().collegeId;
+    const params = useParams()
+    const id = params.collegeId;
 
-    const identifiedReview = Dummy_reviews.find(c => c.id === collegeId);
-    if(!identifiedReview){
-        return <div className="center"><h2>Could not find Review!</h2></div>
-    }
+    const identifiedReview = Dummy_reviews.find(c => c.id == id);
+    console.log(params)
 
-    return <form>
+    return (
+        <>
+        {identifiedReview ? <form>
         <Input id="title"
             element="input"
             type="text"
@@ -62,7 +64,10 @@ const UpdateReview = () => {
             valid={true}>
         </Input>
         <Button type ="Submit" disabled={true}>Update Review</Button>
-    </form>;
+    </form> : <h1> error</h1>}
+        
+        </>
+    )
 };
 
 export default UpdateReview;

@@ -27,10 +27,10 @@ const App = () => {
           <Route path="/college/new" exact>
             <NewReview />
           </Route>
-          <Route path="college/:collegeId">
+          <Route path="/college/:collegeId" exact>
             <UpdateReview/>
           </Route>
-          <Redirect to="/" />
+          {/* <Redirect to="/" />/ */}
         </Switch>
       </main>
     </Router>

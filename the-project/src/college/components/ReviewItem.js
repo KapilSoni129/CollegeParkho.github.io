@@ -6,12 +6,13 @@ import Button from "../../shared/components/FormElements/Button";
 import Modal from '../../shared/components/UIElements/Modal';
 import Map from '../../shared/components/UIElements/Map';
 
-const ReviewItem = props => {
+const ReviewItem = (props) => {
   const[showMap,setShowMap] = useState(false);
 
   const openMapHandler = () => setShowMap(true);
   
   const closeMapHandler = () => setShowMap(false);
+  console.log(props.creatorId)
 
   return (
     <React.Fragment>
