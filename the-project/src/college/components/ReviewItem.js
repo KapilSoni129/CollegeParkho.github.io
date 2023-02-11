@@ -9,10 +9,26 @@ import Map from '../../shared/components/UIElements/Map';
 const ReviewItem = (props) => {
   const[showMap,setShowMap] = useState(false);
 
+  const[showConfirmModal, setShowConfirmModal] = useState(false);
+
   const openMapHandler = () => setShowMap(true);
   
   const closeMapHandler = () => setShowMap(false);
-  console.log(props.creatorId)
+  // console.log(props.creatorId)
+
+  const showDeleteWarningHandler = () => {
+    setShowConfirmModal(true);
+  };
+
+  const cancelDeleteHandler = () => {
+    setShowConfirmModal(false);
+  };
+
+  const confirmDeleteHandler = () => {
+    setShowConfirmModal(false);
+    console.log('DELETING ... ')
+  };
+
 
   return (
     <React.Fragment>
@@ -28,6 +44,15 @@ const ReviewItem = (props) => {
           <Map center={props.coordinates} zoom={16} ></Map>
         </div>
       </Modal>
+    <Modal show={showConfirmModal} onCancel={cancelDeleteHandler} 
+    header="Are you sure?" footerClass="place-item__modal-actions" footer={
+      <React.Fragment>
+        <Button inverse onClick={cancelDeleteHandler}>Cancel</Button>
+        <Button danger onClick={confirmDeleteHandler}>Delete</Button>
+      </React.Fragment>
+    }>
+      <p>Do you want to proceed and delete this review please note that it can't be undone thereafter?</p>
+    </Modal>
     <li className='place-item'>
       <Card className="place-item__content">
       <div className='place-item__image'>
@@ -41,7 +66,7 @@ const ReviewItem = (props) => {
       <div className='place-item__actions'>
           <Button inverse onClick={openMapHandler}>View on Map</Button>
           <Button to={`/college/${props.id}`}>Edit</Button>
-          <Button danger>Delete</Button>
+          <Button danger onClick={showDeleteWarningHandler}>Delete</Button>
       </div>
       </Card>
     </li>

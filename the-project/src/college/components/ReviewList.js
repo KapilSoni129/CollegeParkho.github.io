@@ -3,13 +3,14 @@ import React from 'react';
 import "./ReviewList.css"
 import Card from '../../shared/components/UIElements/Card';
 import ReviewItem from './ReviewItem';
+import Button from "../../shared/components/FormElements/Button";
 
 const ReviewList = props => {// eslint-disable-next-line
   if (props.items.length == 0){
     return <div className='place-list center'>
         <Card>
             <h2>No Reviews. Maybe create one?</h2>
-            <button>Share Review</button>
+            <Button to="/college/new">Share Review</Button>
         </Card>
     </div>
   }
