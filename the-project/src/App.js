@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Redirect,
   Switch
 } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ import NewReview from './college/pages/NewReview';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import UserReview from './college/pages/UserReview';
 import UpdateReview from './college/pages/UpdateReview';
+import Auth from './user/pages/Auth';
 
 const App = () => {
   return (
@@ -29,7 +31,10 @@ const App = () => {
           <Route path="/college/:collegeId" exact>
             <UpdateReview/>
           </Route>
-          {/* <Redirect to="/" />/ */}
+          <Route path="/auth" exact>
+            <Auth/>
+          </Route>
+          <Redirect to="/" />
         </Switch>
       </main>
     </Router>

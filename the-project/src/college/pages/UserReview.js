@@ -33,6 +33,7 @@ const Dummy_reviews= [
 
 const UserReview = () => {
     const userId = useParams().userId;
+     // eslint-disable-next-line 
     const loadedReviews = Dummy_reviews.filter(college => college.creator == userId);
     return <ReviewList items={loadedReviews}></ReviewList>
 };
